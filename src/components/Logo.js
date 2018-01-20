@@ -1,15 +1,15 @@
 import React from 'react';
 import Logo from '../svg/logo';
-import '../App.css';
-import TouchableIcon from './TouchableIcon';
+import './Logo.css';
+import TouchableAnchor from './TouchableAnchor';
 
 const TouchableLogo = () => (
-  <div className="App-logo">
-    <TouchableIcon
-      icon={Logo}
+  <div className="logo-wrapper">
+    <TouchableAnchor
+      render={Logo}
       href="https://www.annagarcia.live"
       title="logo"
-      hoverClass="logo-hover"
+      touchClass="logo-hover"
       defaultClass="logo"
     />
   </div>

@@ -1,0 +1,26 @@
+.logo-wrapper {
+  animation: logo-wrapper-spin infinite 20s linear;
+  text-align: left;
+  align-self: center;
+}
+
+@keyframes logo-wrapper-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.logo-hover:hover path,
+.logo-hover:hover polygon {
+  fill: #f40ef0;
+  fill-opacity: 0.6;
+}
+
+.logo {
+  fill: #f40ef0;
+  fill-opacity: 0.5;
+  stroke: #000000;
+}

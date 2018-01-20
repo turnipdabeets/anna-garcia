@@ -1,6 +1,6 @@
 import React from 'react';
-import '../App.css';
-import TouchableIcon from './TouchableIcon';
+import './Social.css';
+import TouchableAnchor from './TouchableAnchor';
 import Linkedin from '../svg/linkedin';
 import Github from '../svg/github';
 import Twitter from '../svg/twitter';
@@ -27,11 +27,11 @@ const SocialGroup = () => (
   <ul className="socialGroup">
     {socialList.map(social => (
       <li key={social.href}>
-        <TouchableIcon
+        <TouchableAnchor
           href={social.href}
           title={social.title}
-          icon={social.icon}
-          hoverClass="hitSlop socialhover"
+          render={social.icon}
+          touchClass="hitSlop socialhover"
           defaultClass="hitSlop"
           target="_blank"
         />

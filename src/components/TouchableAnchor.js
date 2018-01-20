@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import '../App.css';
 
-// adds a class to the anchor tag when touched on mobile or hovering on web
+// adds a class to the anchor tag when touched on mobile or mouse enters on web
 
-class TouchableIcon extends Component {
+class TouchableAnchor extends Component {
   state = {
     hover: false
   };
@@ -14,14 +14,14 @@ class TouchableIcon extends Component {
 
   render() {
     const {
-      icon,
+      render,
       href,
       title,
-      hoverClass = 'hitSlop',
+      touchClass = 'hitSlop',
       defaultClass,
       target = '_self'
     } = this.props;
-    const classes = this.state.hover ? hoverClass : defaultClass;
+    const classes = this.state.hover ? touchClass : defaultClass;
     return (
       <a
         className={classes}
@@ -36,10 +36,10 @@ class TouchableIcon extends Component {
         title={title}
         target={target}
       >
-        {icon}
+        {render}
       </a>
     );
   }
 }
 
-export default TouchableIcon;
+export default TouchableAnchor;

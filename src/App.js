@@ -10,7 +10,7 @@ const App = () => {
         <Logo />
         <SocialGroup />
       </header>
-      <p className="App-intro">Anna Garcia's new website coming soon.</p>
+      <p className="App-title">Anna Garcia's new website coming soon.</p>
     </div>
   );
 };

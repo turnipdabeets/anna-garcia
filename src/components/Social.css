@@ -1,0 +1,14 @@
+.socialGroup {
+  list-style: none;
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.hitSlop {
+  padding: 15px;
+}
+
+.socialhover:hover path {
+  fill: #f40ef0;
+}
