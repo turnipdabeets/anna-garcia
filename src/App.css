@@ -5,7 +5,10 @@
 .App-header {
   background-color: #111; /* #222; */
   display: flex;
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 5%;
+  padding-right: 5%;
   color: white;
 }
 
@@ -15,4 +18,28 @@
 
 .App-intro {
   font-size: large;
+}
+
+.routeGroup {
+  list-style: none;
+  display: flex;
+  flex: 2;
+  justify-content: center;
+  align-self: center;
+}
+
+ul.routeGroup li a {
+  font-size: 1.2em;
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+}
+
+ul.routeGroup li a:hover {
+  color: #f40ef0;
+  opacity: 0.9;
+}
+
+ul.routeGroup li a:focus {
+  color: #f40ef0;
 }

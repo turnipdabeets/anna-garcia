@@ -12,3 +12,9 @@
 .socialhover:hover path {
   fill: #f40ef0;
 }
+
+@media only screen and (max-width: 600px) {
+  .socialGroup {
+    display: none;
+  }
+}
