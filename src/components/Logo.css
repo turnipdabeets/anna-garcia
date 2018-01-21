@@ -24,3 +24,8 @@
   fill-opacity: 0.5;
   stroke: #000000;
 }
+
+.logo-native svg {
+  width: 35px;
+  height: 35px;
+}

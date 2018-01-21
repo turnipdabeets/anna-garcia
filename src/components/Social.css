@@ -3,6 +3,8 @@
   display: flex;
   flex: 1;
   justify-content: flex-end;
+  margin: 0;
+  align-items: center;
 }
 
 .hitSlop {

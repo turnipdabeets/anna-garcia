@@ -2,14 +2,20 @@
   text-align: center;
 }
 
-.App-header {
+.App-header,
+.App-header-native {
   background-color: #111; /* #222; */
   display: flex;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   padding-left: 5%;
   padding-right: 5%;
   color: white;
+}
+
+.App-header-native {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .App-footer {

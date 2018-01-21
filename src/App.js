@@ -46,12 +46,14 @@ const Music = () => (
   </div>
 );
 
+const headerStyle = nativeDevice ? 'App-header-native' : 'App-header';
+
 const App = () => {
   return (
     <div className="App">
       <Router>
         <div className="App-container">
-          <header className="App-header">
+          <header className={headerStyle}>
             <Logo />
             {!nativeDevice && <PlatformNavBar />}
             <SocialGroup />
