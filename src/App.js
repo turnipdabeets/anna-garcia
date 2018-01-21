@@ -1,10 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { nativeDevice } from './utils';
 import './App.css';
-import SocialGroup from './components/Social';
+import PlatformNavBar from './components/PlatformNavBar';
 import Logo from './components/Logo';
-import 'font-awesome/css/font-awesome.min.css';
+import SocialGroup from './components/Social';
 
 const NoMatch = ({ location }) => (
   <div>
@@ -46,52 +46,6 @@ const Music = () => (
   </div>
 );
 
-const Routes = () => {
-  let deviceClass;
-  if (nativeDevice) {
-    deviceClass = 'nativeRouteGroup';
-  } else {
-    deviceClass = 'routeGroup';
-  }
-
-  return (
-    <ul className={deviceClass}>
-      {nativeDevice && (
-        <li>
-          <Link to="/">
-            <i className="fa fa-home" ariaHidden="true" />
-            <p>home</p>
-          </Link>
-        </li>
-      )}
-      <li>
-        <Link to="/about">
-          {nativeDevice && <i className="fa fa-info" aria-hidden="true" />}
-          <p>about</p>
-        </Link>
-      </li>
-      <li>
-        <Link to="/music">
-          {nativeDevice && <i className="fa fa-music" aria-hidden="true" />}
-          <p>music</p>
-        </Link>
-      </li>
-      <li>
-        <Link to="/code">
-          {nativeDevice && <i className="fa fa-code" aria-hidden="true" />}
-          <p>code</p>
-        </Link>
-      </li>
-      <li>
-        <Link to="/contact">
-          {nativeDevice && <i className="fa fa-envelope" aria-hidden="true" />}
-          <p>contact</p>
-        </Link>
-      </li>
-    </ul>
-  );
-};
-
 const App = () => {
   return (
     <div className="App">
@@ -99,7 +53,7 @@ const App = () => {
         <div className="App-container">
           <header className="App-header">
             <Logo />
-            {!nativeDevice && <Routes />}
+            {!nativeDevice && <PlatformNavBar />}
             <SocialGroup />
           </header>
           <section className="App-body">
@@ -112,7 +66,9 @@ const App = () => {
               <Route component={NoMatch} />
             </Switch>
           </section>
-          <footer className="App-footer">{nativeDevice && <Routes />}</footer>
+          <footer className="App-footer">
+            {nativeDevice && <PlatformNavBar />}
+          </footer>
         </div>
       </Router>
     </div>
