@@ -4,6 +4,7 @@ import { nativeDevice } from './utils';
 import './App.css';
 import SocialGroup from './components/Social';
 import Logo from './components/Logo';
+import 'font-awesome/css/font-awesome.min.css';
 
 const NoMatch = ({ location }) => (
   <div>
@@ -57,20 +58,35 @@ const Routes = () => {
     <ul className={deviceClass}>
       {nativeDevice && (
         <li>
-          <Link to="/">home</Link>
+          <Link to="/">
+            <i className="fa fa-home" ariaHidden="true" />
+            <p>home</p>
+          </Link>
         </li>
       )}
       <li>
-        <Link to="/about">about</Link>
+        <Link to="/about">
+          {nativeDevice && <i className="fa fa-info" aria-hidden="true" />}
+          <p>about</p>
+        </Link>
       </li>
       <li>
-        <Link to="/contact">contact</Link>
+        <Link to="/music">
+          {nativeDevice && <i className="fa fa-music" aria-hidden="true" />}
+          <p>music</p>
+        </Link>
       </li>
       <li>
-        <Link to="/music">music</Link>
+        <Link to="/code">
+          {nativeDevice && <i className="fa fa-code" aria-hidden="true" />}
+          <p>code</p>
+        </Link>
       </li>
       <li>
-        <Link to="/code">code</Link>
+        <Link to="/contact">
+          {nativeDevice && <i className="fa fa-envelope" aria-hidden="true" />}
+          <p>contact</p>
+        </Link>
       </li>
     </ul>
   );
