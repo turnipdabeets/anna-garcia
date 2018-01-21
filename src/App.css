@@ -1,4 +1,4 @@
-.App {
+.App-container {
   text-align: center;
 }
 
@@ -10,6 +10,12 @@
   padding-left: 5%;
   padding-right: 5%;
   color: white;
+}
+
+.App-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .App-title {
@@ -28,18 +34,31 @@
   align-self: center;
 }
 
-ul.routeGroup li a {
+.nativeRouteGroup {
+  background-color: #111; /* #222; */
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  margin: 0;
+  padding: 20px;
+}
+
+ul.routeGroup li a,
+ul.nativeRouteGroup li a {
   font-size: 1.2em;
   color: white;
   text-decoration: none;
   padding: 15px;
 }
 
-ul.routeGroup li a:hover {
+ul.routeGroup li a:hover,
+ul.nativeRouteGroup li a:hover {
   color: #f40ef0;
   opacity: 0.9;
 }
 
-ul.routeGroup li a:focus {
+ul.routeGroup li a:focus,
+ul.nativeRouteGroup li a:focus {
   color: #f40ef0;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { nativeDevice } from './utils';
 import './App.css';
 import SocialGroup from './components/Social';
 import Logo from './components/Logo';
@@ -24,6 +25,12 @@ const About = () => (
   </div>
 );
 
+const Code = () => (
+  <div>
+    <h2>Code</h2>
+  </div>
+);
+
 const Contact = () => (
   <div>
     <h2>Contact</h2>
@@ -39,8 +46,20 @@ const Music = () => (
 );
 
 const Routes = () => {
+  let deviceClass;
+  if (nativeDevice) {
+    deviceClass = 'nativeRouteGroup';
+  } else {
+    deviceClass = 'routeGroup';
+  }
+
   return (
-    <ul className="routeGroup">
+    <ul className={deviceClass}>
+      {nativeDevice && (
+        <li>
+          <Link to="/">home</Link>
+        </li>
+      )}
       <li>
         <Link to="/about">about</Link>
       </li>
@@ -50,30 +69,37 @@ const Routes = () => {
       <li>
         <Link to="/music">music</Link>
       </li>
+      <li>
+        <Link to="/code">code</Link>
+      </li>
     </ul>
   );
 };
 
 const App = () => {
   return (
-    <Router>
-      <div className="App">
-        <header className="App-header">
-          <Logo />
-          <Routes />
-          <SocialGroup />
-        </header>
-        <body className="App-body">
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/contact" component={Contact} />
-            <Route from="/music" component={Music} />
-            <Route component={NoMatch} />
-          </Switch>
-        </body>
-      </div>
-    </Router>
+    <div className="App">
+      <Router>
+        <div className="App-container">
+          <header className="App-header">
+            <Logo />
+            {!nativeDevice && <Routes />}
+            <SocialGroup />
+          </header>
+          <section className="App-body">
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/about" component={About} />
+              <Route path="/contact" component={Contact} />
+              <Route from="/music" component={Music} />
+              <Route path="/code" component={Code} />
+              <Route component={NoMatch} />
+            </Switch>
+          </section>
+          <footer className="App-footer">{nativeDevice && <Routes />}</footer>
+        </div>
+      </Router>
+    </div>
   );
 };
 
