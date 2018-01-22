@@ -38,15 +38,8 @@ const Contact = () => (
   </div>
 );
 
-const Music = () => (
-  <div>
-    <p className="App-title">
-      <a href="http://music.annagarcia.live">http://music.annagarcia.live</a>
-    </p>
-  </div>
-);
-
 const headerStyle = nativeDevice ? 'App-header-native' : 'App-header';
+const bodyStyle = nativeDevice ? 'App-body-native' : 'App-body';
 
 const App = () => {
   return (
@@ -58,7 +51,7 @@ const App = () => {
             {!nativeDevice && <PlatformNavBar />}
             <SocialGroup />
           </header>
-          <section className="App-body">
+          <section className={bodyStyle}>
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/about" component={About} />
