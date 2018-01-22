@@ -13,40 +13,44 @@ const NavBar = () => {
   }
 
   return (
-    <ul className={deviceClass}>
-      {nativeDevice && (
+    <nav role="navigation" className="navigation">
+      <ul className={deviceClass}>
+        {nativeDevice && (
+          <li>
+            <Link to="/">
+              <i className="fa fa-home" ariaHidden="true" />
+              <p>home</p>
+            </Link>
+          </li>
+        )}
         <li>
-          <Link to="/">
-            <i className="fa fa-home" ariaHidden="true" />
-            <p>home</p>
+          <Link to="/about">
+            {nativeDevice && <i className="fa fa-info" aria-hidden="true" />}
+            <p>about</p>
           </Link>
         </li>
-      )}
-      <li>
-        <Link to="/about">
-          {nativeDevice && <i className="fa fa-info" aria-hidden="true" />}
-          <p>about</p>
-        </Link>
-      </li>
-      <li>
-        <Link to="/music">
-          {nativeDevice && <i className="fa fa-music" aria-hidden="true" />}
-          <p>music</p>
-        </Link>
-      </li>
-      <li>
-        <Link to="/code">
-          {nativeDevice && <i className="fa fa-code" aria-hidden="true" />}
-          <p>code</p>
-        </Link>
-      </li>
-      <li>
-        <Link to="/contact">
-          {nativeDevice && <i className="fa fa-envelope" aria-hidden="true" />}
-          <p>contact</p>
-        </Link>
-      </li>
-    </ul>
+        <li>
+          <Link to="/music">
+            {nativeDevice && <i className="fa fa-music" aria-hidden="true" />}
+            <p>music</p>
+          </Link>
+        </li>
+        <li>
+          <Link to="/code">
+            {nativeDevice && <i className="fa fa-code" aria-hidden="true" />}
+            <p>code</p>
+          </Link>
+        </li>
+        <li>
+          <Link to="/contact">
+            {nativeDevice && (
+              <i className="fa fa-envelope" aria-hidden="true" />
+            )}
+            <p>contact</p>
+          </Link>
+        </li>
+      </ul>
+    </nav>
   );
 };
 

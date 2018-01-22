@@ -1,3 +1,6 @@
+.navigation {
+  display: block;
+}
 .routeGroup {
   list-style: none;
   display: flex;
