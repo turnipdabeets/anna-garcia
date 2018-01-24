@@ -13,12 +13,13 @@ const NavBar = () => {
   }
 
   return (
+    /*eslint-disable jsx-a11y/no-redundant-roles */
     <nav role="navigation" className="navigation">
       <ul className={deviceClass}>
         {nativeDevice && (
           <li>
             <Link to="/">
-              <i className="fa fa-home" ariaHidden="true" />
+              <i className="fa fa-home" aria-hidden="true" />
               <p>home</p>
             </Link>
           </li>
