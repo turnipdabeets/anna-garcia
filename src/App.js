@@ -5,6 +5,7 @@ import './App.css';
 import PlatformNavBar from './components/PlatformNavBar';
 import Logo from './components/Logo';
 import SocialGroup from './components/Social';
+import Music from './components/Music';
 
 const NoMatch = ({ location }) => (
   <div>
