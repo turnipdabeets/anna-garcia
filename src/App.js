@@ -1,11 +1,23 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Loadable from 'react-loadable';
 import { nativeDevice } from './utils';
 import './App.css';
 import PlatformNavBar from './components/PlatformNavBar';
 import Logo from './components/Logo';
 import SocialGroup from './components/Social';
-import Music from './components/Music';
+
+const Loading = () => <p>LOADING...</p>;
+
+const Music = Loadable({
+  loader: () => import('./components/Music'),
+  loading: Loading
+});
+
+const About = Loadable({
+  loader: () => import('./components/About'),
+  loading: Loading
+});
 
 const NoMatch = ({ location }) => (
   <div>
@@ -18,12 +30,6 @@ const NoMatch = ({ location }) => (
 const Home = () => (
   <div>
     <p className="App-title">Anna Garcia's new website coming soon.</p>
-  </div>
-);
-
-const About = () => (
-  <div>
-    <h2>About</h2>
   </div>
 );
 
