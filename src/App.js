@@ -19,6 +19,11 @@ const About = Loadable({
   loading: Loading
 });
 
+const Code = Loadable({
+  loader: () => import('./components/Code'),
+  loading: Loading
+});
+
 const NoMatch = ({ location }) => (
   <div>
     <h3>
@@ -30,12 +35,6 @@ const NoMatch = ({ location }) => (
 const Home = () => (
   <div>
     <p className="App-title">Anna Garcia's new website coming soon.</p>
-  </div>
-);
-
-const Code = () => (
-  <div>
-    <h2>Code</h2>
   </div>
 );
 
