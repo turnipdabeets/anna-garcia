@@ -61,8 +61,3 @@ ul.nativeRouteGroup li a:hover {
   color: #f40ef0;
   opacity: 0.9;
 }
-
-ul.routeGroup li a:focus,
-ul.nativeRouteGroup li a:focus {
-  color: #f40ef0;
-}
