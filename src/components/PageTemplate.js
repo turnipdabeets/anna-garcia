@@ -16,16 +16,17 @@ const PageTemplate = ({
       <h1 className={`title ${addNativeClass}`}>{title}</h1>
       <p className={`intro ${addNativeClass}`}>{intro}</p>
       {nativeDevice && <hr />}
-      {nativeDevice && (
-        <div>
-          <img
-            src={imgSrc}
-            className={`image ${addNativeClass}`}
-            alt={imgAlt}
-          />
-        </div>
-      )}
-      {nativeDevice && <hr />}
+      {nativeDevice &&
+        imgSrc && (
+          <div>
+            <img
+              src={imgSrc}
+              className={`image ${addNativeClass}`}
+              alt={imgAlt}
+            />
+            <hr />
+          </div>
+        )}
       <div className={`copy ${addNativeClass}`}>{copy}</div>
     </div>
     {!nativeDevice && (
