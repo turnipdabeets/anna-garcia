@@ -29,11 +29,16 @@ const PageTemplate = ({
         )}
       <div className={`copy ${addNativeClass}`}>{copy}</div>
     </div>
-    {!nativeDevice && (
-      <div>
-        <img src={imgSrc} className={`image ${addNativeClass}`} alt={imgAlt} />
-      </div>
-    )}
+    {!nativeDevice &&
+      imgSrc && (
+        <div>
+          <img
+            src={imgSrc}
+            className={`image ${addNativeClass}`}
+            alt={imgAlt}
+          />
+        </div>
+      )}
   </section>
 );
 

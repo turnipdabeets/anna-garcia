@@ -1,0 +1,52 @@
+@media only screen and (min-width: 1000px) {
+  form {
+    display: flex;
+  }
+  .group1 {
+    margin: 0 3.84615385% 0 0;
+    width: 50%;
+  }
+  .group2 {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .contact_button {
+    width: 100%;
+  }
+}
+
+.contact_button {
+  cursor: pointer;
+  border-color: #4b0660;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 1.1em;
+  height: 40px;
+  padding: 0 2em;
+  background: #982095;
+}
+
+.contact_button:hover {
+  background: #f40ef0;
+}
+
+.contact_button:disabled {
+  background: #dddddd;
+  border-color: #dddddd;
+}
+
+input:invalid {
+  border: #ec5840;
+  background-color: rgba(236, 88, 64, 0.1);
+}
+input:focus {
+  background-color: #fff;
+  border-color: #4b0660;
+}
+
+textarea:invald {
+  border-color: #ec5840;
+  background-color: rgba(236, 88, 64, 0.1);
+}

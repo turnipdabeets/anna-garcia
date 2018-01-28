@@ -24,6 +24,11 @@ const Code = Loadable({
   loading: Loading
 });
 
+const Contact = Loadable({
+  loader: () => import('./components/Contact'),
+  loading: Loading
+});
+
 const NoMatch = ({ location }) => (
   <div>
     <h3>
@@ -35,12 +40,6 @@ const NoMatch = ({ location }) => (
 const Home = () => (
   <div>
     <p className="App-title">Anna Garcia's new website coming soon.</p>
-  </div>
-);
-
-const Contact = () => (
-  <div>
-    <h2>Contact</h2>
   </div>
 );
 
