@@ -141,6 +141,7 @@ class Contact extends Component {
                   aria-required="true"
                   aria-invalid={!this.validEmail(email)}
                   style={emailInputStyle}
+                  required
                 />
                 {emailError && (
                   <span style={errorMessage}>
@@ -168,6 +169,7 @@ class Contact extends Component {
                   aria-required="true"
                   aria-invalid={message.length < 5}
                   style={messageInputStyle}
+                  required
                 />
                 {messageError && (
                   <span style={errorMessage}>please write a little more</span>

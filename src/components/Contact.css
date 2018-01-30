@@ -4,7 +4,7 @@
     width: 50%;
   }
   .group2 {
-    width: 50%;
+    width: 100%;
   }
 }
 
@@ -33,17 +33,3 @@
   background: #dddddd;
   border-color: #dddddd;
 }
-
-/* input:invalid {
-  border: #ec5840;
-  background-color: rgba(236, 88, 64, 0.1);
-} */
-input:focus {
-  background-color: #fff;
-  border-color: #4b0660;
-}
-
-/* textarea:invald {
-  border-color: #ec5840;
-  background-color: rgba(236, 88, 64, 0.1);
-} */
