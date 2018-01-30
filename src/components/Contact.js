@@ -3,25 +3,17 @@ import PageTemplate from './PageTemplate';
 import './Contact.css';
 
 const initialState = {
-  name: '',
   email: '',
   message: '',
-  touched: {
-    name: false,
+  onblur: {
+    email: false,
+    message: false
+  },
+  focused: {
     email: false,
     message: false
   },
   sent: false
-};
-
-const errorMessage = {
-  color: '#ec5840',
-  fontSize: '.8em'
-};
-
-const invalidInput = {
-  borderColor: '#ec5840',
-  backgroundColor: 'rgba(236, 88, 64, 0.1)'
 };
 
 class Contact extends Component {
@@ -32,33 +24,22 @@ class Contact extends Component {
     return re.test(email);
   };
 
-  validName = name => {
-    return name.length > 2;
-  };
-
   validMessage = message => {
     return message.length > 8;
   };
 
   validForm = () => {
-    const { name, email, message } = this.state;
-    if (
-      this.validEmail(email) &&
-      this.validName(name) &&
-      this.validMessage(message)
-    ) {
+    const { email, message } = this.state;
+    if (this.validEmail(email) && this.validMessage(message)) {
       return true;
     }
     return false;
   };
 
-  shouldShowError = type => {
-    const { name, email, message } = this.state;
+  invalidValue = type => {
+    const { email, message } = this.state;
     let invalid = null;
     switch (type) {
-      case 'name':
-        invalid = !this.validName(name);
-        break;
       case 'email':
         invalid = !this.validEmail(email);
         break;
@@ -66,7 +47,6 @@ class Contact extends Component {
         invalid = !this.validMessage(message);
         break;
     }
-
     return invalid;
   };
 
@@ -79,18 +59,25 @@ class Contact extends Component {
 
   handleBlur = event => {
     this.setState({
-      touched: { ...this.state.touched, [event.target.name]: true }
+      onblur: { ...this.state.onblur, [event.target.name]: true },
+      focused: { ...this.state.focused, [event.target.name]: false }
+    });
+  };
+
+  handleFocus = event => {
+    this.setState({
+      focused: { ...initialState.focused, [event.target.name]: true },
+      onblur: { ...this.state.onblur, [event.target.name]: false }
     });
   };
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const { name, email, message } = this.state;
+    const { email, message } = this.state;
     const data = {
-      name,
       email,
       message,
-      formDataNameOrder: JSON.stringify(['name', 'email', 'message']),
+      formDataNameOrder: JSON.stringify(['email', 'message']),
       formGoogleSheetName: 'responses'
     };
     const url =
@@ -112,19 +99,21 @@ class Contact extends Component {
   };
 
   render() {
-    console.log(this.state);
-    const inputStyle = {
-      height: '30px',
-      lineHeight: '30px',
-      width: '100%',
-      color: '#111',
-      fontSize: ' 1.2em',
-      padding: '0',
-      border: '#CCC solid 1px',
-      borderRadius: '2px'
-    };
+    const { email, message, onblur, focused } = this.state;
+    const emailError =
+      email && this.invalidValue('email') && onblur.email && !focused.email;
+    const messageError =
+      message &&
+      this.invalidValue('message') &&
+      onblur.message &&
+      !focused.message;
+    const emailInputStyle = emailError
+      ? { ...inputStyle, ...invalidInput }
+      : inputStyle;
+    const messageInputStyle = messageError
+      ? { ...textAreaStyle, ...invalidInput }
+      : textAreaStyle;
 
-    const { name, email, message, touched } = this.state;
     return (
       <PageTemplate
         title="contact"
@@ -140,30 +129,6 @@ class Contact extends Component {
                   lineHeight: '1.4em'
                 }}
               >
-                <label htmlFor="name">Your name: </label>
-                <input
-                  id="name"
-                  type="name"
-                  name="name"
-                  value={name}
-                  onChange={this.handleInputChange}
-                  onBlur={this.handleBlur}
-                  aria-required="true"
-                  aria-invalid={name.length < 4}
-                  minLength="2"
-                  style={inputStyle}
-                />
-                {touched.name &&
-                  this.shouldShowError('name') && (
-                    <span style={errorMessage}>please enter a valid name</span>
-                  )}
-              </div>
-              <div
-                style={{
-                  marginBottom: '1em',
-                  lineHeight: '1.4em'
-                }}
-              >
                 <label htmlFor="email">Your email: </label>
                 <input
                   id="email"
@@ -172,16 +137,16 @@ class Contact extends Component {
                   value={email}
                   onChange={this.handleInputChange}
                   onBlur={this.handleBlur}
+                  onFocus={this.handleFocus}
                   aria-required="true"
                   aria-invalid={!this.validEmail(email)}
-                  style={inputStyle}
+                  style={emailInputStyle}
                 />
-                {touched.email &&
-                  this.shouldShowError('email') && (
-                    <span style={errorMessage}>
-                      please enter a valid email address
-                    </span>
-                  )}
+                {emailError && (
+                  <span style={errorMessage}>
+                    please enter a valid email address
+                  </span>
+                )}
               </div>
             </div>
             <div className="group2">
@@ -199,22 +164,14 @@ class Contact extends Component {
                   minLength="8"
                   onChange={this.handleInputChange}
                   onBlur={this.handleBlur}
+                  onFocus={this.handleFocus}
                   aria-required="true"
                   aria-invalid={message.length < 5}
-                  style={{
-                    height: 150,
-                    width: '100%',
-                    color: '#111',
-                    fontSize: ' 1.2em',
-                    padding: 0,
-                    border: '#CCC solid 1px',
-                    borderRadius: '2px'
-                  }}
+                  style={messageInputStyle}
                 />
-                {touched.message &&
-                  this.shouldShowError('message') && (
-                    <span style={errorMessage}>please write a little more</span>
-                  )}
+                {messageError && (
+                  <span style={errorMessage}>please write a little more</span>
+                )}
               </div>
               <button
                 className="contact_button"
@@ -232,3 +189,29 @@ class Contact extends Component {
 }
 
 export default Contact;
+
+const errorMessage = {
+  color: '#ec5840',
+  fontSize: '.8em'
+};
+
+const invalidInput = {
+  borderColor: '#ec5840',
+  backgroundColor: 'rgba(236, 88, 64, 0.1)'
+};
+
+const inputStyle = {
+  height: '30px',
+  lineHeight: '30px',
+  width: '100%',
+  color: '#111',
+  fontSize: ' 1.2em',
+  padding: 0,
+  border: '#CCC solid 1px',
+  borderRadius: '2px'
+};
+
+const textAreaStyle = {
+  ...inputStyle,
+  height: 150
+};

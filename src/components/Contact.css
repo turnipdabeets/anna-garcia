@@ -1,7 +1,4 @@
 @media only screen and (min-width: 1000px) {
-  form {
-    display: flex;
-  }
   .group1 {
     margin: 0 3.84615385% 0 0;
     width: 50%;
@@ -37,16 +34,16 @@
   border-color: #dddddd;
 }
 
-input:invalid {
+/* input:invalid {
   border: #ec5840;
   background-color: rgba(236, 88, 64, 0.1);
-}
+} */
 input:focus {
   background-color: #fff;
   border-color: #4b0660;
 }
 
-textarea:invald {
+/* textarea:invald {
   border-color: #ec5840;
   background-color: rgba(236, 88, 64, 0.1);
-}
+} */
