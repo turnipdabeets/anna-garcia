@@ -14,8 +14,10 @@ const initialState = {
     email: false,
     message: false
   },
+  buttonName: 'Send',
+  confirmationText: null,
   sent: false,
-  buttonName: 'Send'
+  error: false
 };
 
 class Contact extends Component {
@@ -48,6 +50,8 @@ class Contact extends Component {
       case 'message':
         invalid = !this.validMessage(message);
         break;
+      default:
+        invalid = true;
     }
     return invalid;
   };
@@ -89,10 +93,20 @@ class Contact extends Component {
     xhr.open('POST', url);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onerror = function(e) {
+      this.setState({
+        ...initialState,
+        error: true,
+        confirmationText:
+          'Oh no! There was an error while sending. Please try again!'
+      });
       console.error(xhr.statusText);
     };
     xhr.onreadystatechange = () => {
-      this.setState({ ...initialState, sent: true });
+      this.setState({
+        ...initialState,
+        sent: true,
+        confirmationText: 'Thanks for contacting me!'
+      });
     };
     // url encode form data for sending as post data
     var encoded = Object.keys(data)
@@ -102,7 +116,15 @@ class Contact extends Component {
   };
 
   render() {
-    const { email, message, onblur, focused, buttonName } = this.state;
+    const {
+      email,
+      message,
+      onblur,
+      focused,
+      buttonName,
+      confirmationText,
+      error
+    } = this.state;
     const emailError =
       email && this.invalidValue('email') && onblur.email && !focused.email;
     const messageError =
@@ -116,7 +138,6 @@ class Contact extends Component {
     const messageInputStyle = messageError
       ? { ...textAreaStyle, ...invalidInput }
       : textAreaStyle;
-
     return (
       <PageTemplate
         title="contact"
@@ -126,6 +147,9 @@ class Contact extends Component {
         copy={
           <form onSubmit={this.handleFormSubmit}>
             <div className="group1">
+              <p style={{ color: error ? '#ec5840' : '#982095' }}>
+                {confirmationText}
+              </p>
               <div
                 style={{
                   marginBottom: '1em',
