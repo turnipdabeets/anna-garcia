@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PageTemplate from './PageTemplate';
 import './Contact.css';
+import { nativeDevice } from '../utils';
 
 const initialState = {
   email: '',
@@ -13,7 +14,8 @@ const initialState = {
     email: false,
     message: false
   },
-  sent: false
+  sent: false,
+  buttonName: 'Send'
 };
 
 class Contact extends Component {
@@ -80,6 +82,7 @@ class Contact extends Component {
       formDataNameOrder: JSON.stringify(['email', 'message']),
       formGoogleSheetName: 'responses'
     };
+    this.setState({ buttonName: 'Sending...' });
     const url =
       'https://script.google.com/macros/s/AKfycbymR0qVb1Mfkt9-qtlQsiNgPPE1Dma_dF1_AuTJ0niZVqluoik/exec';
     var xhr = new XMLHttpRequest();
@@ -99,7 +102,7 @@ class Contact extends Component {
   };
 
   render() {
-    const { email, message, onblur, focused } = this.state;
+    const { email, message, onblur, focused, buttonName } = this.state;
     const emailError =
       email && this.invalidValue('email') && onblur.email && !focused.email;
     const messageError =
@@ -180,7 +183,7 @@ class Contact extends Component {
                 disabled={this.validForm() ? false : 'disabled'}
                 type="submit"
               >
-                Send
+                {buttonName}
               </button>
             </div>
           </form>
@@ -210,7 +213,8 @@ const inputStyle = {
   fontSize: ' 1.2em',
   padding: 0,
   border: '#CCC solid 1px',
-  borderRadius: '2px'
+  borderRadius: '2px',
+  outline: nativeDevice ? 'mobile-form' : null
 };
 
 const textAreaStyle = {

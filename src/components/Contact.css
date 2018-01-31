@@ -26,10 +26,11 @@
 }
 
 .contact_button:hover {
-  background: #f40ef0;
+  background: #b314b1;
 }
 
 .contact_button:disabled {
-  background: #dddddd;
+  background: #982095;
   border-color: #dddddd;
+  opacity: 0.2;
 }
