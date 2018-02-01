@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './ContactForm.css';
-import { nativeDevice } from '../utils';
 
 const initialState = {
   email: '',
@@ -235,8 +234,7 @@ const inputStyle = {
   fontSize: ' 1.2em',
   padding: 0,
   border: '#CCC solid 1px',
-  borderRadius: '2px',
-  outline: nativeDevice ? 'mobile-form' : null
+  borderRadius: '2px'
 };
 
 const textAreaStyle = {

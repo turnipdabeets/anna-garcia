@@ -4,3 +4,13 @@ body {
   font-family: 'Roboto', sans-serif;
   height: 100%;
 }
+
+.native-content img:focus,
+.native-content input:focus,
+.native-content textarea:focus,
+.native-content section:focus,
+.native-content div:focus,
+.native-content p:focus,
+.native-content button:focus {
+  outline: none;
+}
