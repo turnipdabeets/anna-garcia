@@ -4,6 +4,13 @@ import './PageTemplate.css';
 
 const addNativeClass = nativeDevice ? 'native-content' : '';
 
+export const Header = ({ title, intro }) => (
+  <div>
+    <h1 className={`title ${addNativeClass}`}>{title}</h1>
+    <p className={`intro ${addNativeClass}`}>{intro}</p>
+  </div>
+);
+
 const PageTemplate = ({
   title,
   intro,
@@ -13,8 +20,7 @@ const PageTemplate = ({
 }) => (
   <section className={`main ${addNativeClass}`}>
     <div className="text-main">
-      <h1 className={`title ${addNativeClass}`}>{title}</h1>
-      <p className={`intro ${addNativeClass}`}>{intro}</p>
+      <Header title={title} intro={intro} />
       {nativeDevice && <hr />}
       {nativeDevice &&
         imgSrc && (

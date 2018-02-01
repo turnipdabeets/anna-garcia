@@ -1,19 +1,20 @@
-import React, { Component } from 'react';
-import PageTemplate from './PageTemplate';
+import React from 'react';
+import { Header } from './PageTemplate';
+import { nativeDevice } from '../utils';
+import './PageTemplate.css';
 import ContactForm from './ContactForm';
 
-class Contact extends Component {
-  render() {
-    return (
-      <PageTemplate
-        title="contact"
-        imgSrc={null}
-        imgAlt=""
-        intro="Send me an email"
-        copy={<ContactForm />}
-      />
-    );
-  }
-}
+const addNativeClass = nativeDevice ? 'native-content' : '';
+
+const Contact = () => {
+  return (
+    <section className={`main ${addNativeClass}`}>
+      <div className="text-main">
+        <Header title="contact" intro="Send me an email" />
+        <ContactForm />
+      </div>
+    </section>
+  );
+};
 
 export default Contact;
