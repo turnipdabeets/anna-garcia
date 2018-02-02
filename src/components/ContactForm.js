@@ -193,7 +193,7 @@ class Contact extends Component {
               aria-invalid={message.length < 5}
               style={messageInputStyle}
               required
-              autocomplete="off"
+              autoComplete="off"
             />
             {messageError && (
               <span style={errorMessage}>

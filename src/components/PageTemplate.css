@@ -24,7 +24,7 @@
 }
 
 .title.native-content {
-  font-size: 4em;
+  font-size: 3em;
 }
 
 .intro {
@@ -38,7 +38,7 @@
 
 .intro.native-content {
   color: #333;
-  font-size: 1.2em;
+  font-size: 1.26em;
 }
 
 .copy {
@@ -61,16 +61,29 @@
 .image.native-content {
   height: 100%;
   width: 100%;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
 }
 
-@media only screen and (max-width: 430px) {
+/* @media only screen and (max-width: 435px) {
   .title.native-content {
     font-size: 3em;
   }
 
   .intro.native-content {
-    font-size: 0.9em;
+    font-size: 1.1em;
+  }
+} */
+
+/* hard codeded intro based on text 'Fullstack Web and Mobile Developer
+@media only screen and (max-width: 381px) {
+  .intro.native-content {
+    font-size: 1em;
   }
 }
+
+@media only screen and (max-width: 346px) {
+  .intro.native-content {
+    font-size: 0.9em;
+  }
+} */

@@ -1,7 +1,7 @@
 .typewriter {
   display: inline-block; /* Makes sure cursor ends at end of text  */
 }
-.typewriter p {
+.typewriter h2 {
   font-family: monospace;
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: 0.1em solid #f40ef0; /* The typwriter cursor */
