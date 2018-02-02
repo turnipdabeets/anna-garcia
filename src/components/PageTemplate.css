@@ -23,6 +23,10 @@
   margin-bottom: 1rem;
 }
 
+.title.native-content {
+  font-size: 4em;
+}
+
 .intro {
   color: #666;
   margin: 0;
@@ -59,4 +63,14 @@
   width: 100%;
   margin-bottom: 1rem;
   margin-top: 1rem;
+}
+
+@media only screen and (max-width: 430px) {
+  .title.native-content {
+    font-size: 3em;
+  }
+
+  .intro.native-content {
+    font-size: 0.9em;
+  }
 }
