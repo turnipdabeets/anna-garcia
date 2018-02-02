@@ -1,11 +1,12 @@
 import React from 'react';
 import { nativeDevice } from '../utils';
 import './PageTemplate.css';
+import './Code.css';
 
 const addNativeClass = nativeDevice ? 'native-content' : '';
 
 export const Header = ({ title, intro }) => (
-  <div>
+  <div className={title === 'code' && 'typewriter'}>
     <h1 className={`title ${addNativeClass}`}>{title}</h1>
     <p className={`intro ${addNativeClass}`}>{intro}</p>
   </div>
