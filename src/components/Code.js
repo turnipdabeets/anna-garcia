@@ -1,12 +1,17 @@
 import React from 'react';
+import Loadable from 'react-loadable';
 import {
   Header,
   PageWrapper,
   SectionWrapper,
   CopyWrapper
 } from './PageTemplate';
-import WordCloud from 'react-d3-cloud';
 import './Code.css';
+
+const WordCloud = Loadable({
+  loader: () => import('react-d3-cloud'),
+  loading: () => <p />
+});
 
 const data = [
   { text: 'JavaScript', value: 12800 },

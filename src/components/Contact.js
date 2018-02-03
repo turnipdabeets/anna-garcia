@@ -1,10 +1,24 @@
 import React, { Component } from 'react';
+import Loadable from 'react-loadable';
 import { PageWrapper, SectionWrapper, Title, Intro } from './PageTemplate';
+import ContactFormLoader from './ContactFormLoader';
 import { nativeDevice } from '../utils';
-import bird from '../svg/bird';
-import checkmark from '../svg/checkmark';
-import ContactForm from './ContactForm';
 import './ContactForm.css';
+
+const ContactForm = Loadable({
+  loader: () => import('./ContactForm'),
+  loading: ContactFormLoader
+});
+
+const Checkmark = Loadable({
+  loader: () => import('../svg/checkmark'),
+  loading: () => <p />
+});
+
+const Bird = Loadable({
+  loader: () => import('../svg/bird'),
+  loading: () => <p />
+});
 
 // adds padding below form which only affects native to hid bird before submitting
 const nativePadding = <div style={{ paddingTop: '9rem' }} />;
@@ -33,7 +47,7 @@ class Contact extends Component {
           <div>
             <div style={{ display: 'flex' }}>
               <Title text="contact" />
-              {sent && !nativeDevice && checkmark}
+              {sent && !nativeDevice && <Checkmark />}
             </div>
             <Intro style={error ? { color: '#ec5840' } : null} text={intro} />
           </div>
@@ -50,9 +64,11 @@ class Contact extends Component {
             !error && (
               <ContactForm onSuccess={this.onSuccess} onError={this.onError} />
             )}
-          {!sent && nativePadding}
+          {!sent && !error && nativePadding}
         </SectionWrapper>
-        <SectionWrapper>{bird}</SectionWrapper>
+        <SectionWrapper>
+          <Bird />
+        </SectionWrapper>
       </PageWrapper>
     );
   }

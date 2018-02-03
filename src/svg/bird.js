@@ -2,7 +2,7 @@ import React from 'react';
 
 // shout out to Ronan Levesque - https://codepen.io/eskiiss/pen/kFphn
 
-const Bird = (
+const Bird = () => (
   <svg
     width="500px"
     height="500px"

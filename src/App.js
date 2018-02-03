@@ -6,32 +6,32 @@ import './App.css';
 import PlatformNavBar from './components/PlatformNavBar';
 import Logo from './components/Logo';
 import SocialGroup from './components/Social';
-
-const Loading = () => <p>LOADING...</p>;
+import BasicPageLoader from './components/BasicPageLoader';
+import ContactPageLoader from './components/ContactPageLoader';
 
 const Music = Loadable({
   loader: () => import('./components/Music'),
-  loading: Loading
+  loading: BasicPageLoader
 });
 
 const About = Loadable({
   loader: () => import('./components/About'),
-  loading: Loading
+  loading: BasicPageLoader
 });
 
 const Code = Loadable({
   loader: () => import('./components/Code'),
-  loading: Loading
+  loading: BasicPageLoader
 });
 
 const Contact = Loadable({
   loader: () => import('./components/Contact'),
-  loading: Loading
+  loading: ContactPageLoader
 });
 
 const NoMatch = Loadable({
   loader: () => import('./components/NoMatch'),
-  loading: Loading
+  loading: BasicPageLoader
 });
 
 const Home = () => (
