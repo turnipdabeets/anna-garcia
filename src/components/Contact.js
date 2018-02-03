@@ -7,7 +7,7 @@ import ContactForm from './ContactForm';
 import './ContactForm.css';
 
 // adds padding below form which only affects native to hid bird before submitting
-const nativePadding = <div style={{ paddingTop: '6rem' }} />;
+const nativePadding = <div style={{ paddingTop: '9rem' }} />;
 
 class Contact extends Component {
   state = {
