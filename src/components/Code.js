@@ -9,10 +9,11 @@ import WordCloud from 'react-d3-cloud';
 import './Code.css';
 
 const data = [
-  { text: 'JavaScript', value: 1080 },
-  { text: 'React Native', value: 1100 },
-  { text: 'React', value: 1080 },
-  { text: 'Node', value: 120 },
+  { text: 'JavaScript', value: 12800 },
+  { text: 'python', value: 5 },
+  { text: 'React Native', value: 16900 },
+  { text: 'React', value: 10800 },
+  { text: 'Node', value: 900 },
   { text: 'SQL', value: 50 },
   { text: 'three.js', value: 10 },
   { text: 'design', value: 40 },
@@ -23,7 +24,12 @@ const data = [
   { text: 'npm', value: 80 },
   { text: 'babel', value: 80 },
   { text: 'mongo', value: 20 },
-  { text: 'angular', value: 5 }
+  { text: 'angular', value: 5 },
+  { text: 'Kotlin', value: 120 },
+  { text: 'Java', value: 117 },
+  { text: 'Swift', value: 111 },
+  { text: 'Objective C', value: 100 },
+  { text: 'R', value: 25 }
 ];
 
 const fontSizeMapper = word => Math.log2(word.value) * 3;
@@ -49,8 +55,8 @@ const Code = () => (
       data={data}
       fontSizeMapper={fontSizeMapper}
       rotate={rotate}
-      width={320}
-      height={300}
+      width={290}
+      height={320}
     />
   </PageWrapper>
 );
