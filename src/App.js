@@ -29,13 +29,10 @@ const Contact = Loadable({
   loading: Loading
 });
 
-const NoMatch = ({ location }) => (
-  <div>
-    <h3>
-      Oops! No match for <code>{location.pathname}</code>
-    </h3>
-  </div>
-);
+const NoMatch = Loadable({
+  loader: () => import('./components/NoMatch'),
+  loading: Loading
+});
 
 const Home = () => (
   <div>
