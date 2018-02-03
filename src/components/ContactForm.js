@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './ContactForm.css';
 
+// handles contact form, functionality. Pass onSuccess & onError callbacks.
+
 const initialState = {
   email: '',
   message: '',
@@ -13,8 +15,8 @@ const initialState = {
     message: false
   },
   buttonName: 'Send',
-  confirmationText: null,
-  sent: false,
+  errorText: null,
+  sent: true,
   error: false
 };
 
@@ -94,17 +96,17 @@ class Contact extends Component {
       this.setState({
         ...initialState,
         error: true,
-        confirmationText:
-          'Oh no! There was an error while sending. Please try again!'
+        errorText: 'Oh no! There was an error while sending. Please try again!'
       });
+      this.props.onError();
       console.error(xhr.statusText);
     };
     xhr.onreadystatechange = () => {
       this.setState({
         ...initialState,
-        sent: true,
-        confirmationText: 'Thanks for contacting me!'
+        sent: true
       });
+      this.props.onSuccess();
     };
     // url encode form data for sending as post data
     var encoded = Object.keys(data)
@@ -120,7 +122,7 @@ class Contact extends Component {
       onblur,
       focused,
       buttonName,
-      confirmationText,
+      errorText,
       error
     } = this.state;
 
@@ -142,9 +144,7 @@ class Contact extends Component {
     return (
       <form onSubmit={this.handleFormSubmit}>
         <div className="group1">
-          <p style={{ color: error ? errorTextColor : '#982095' }}>
-            {confirmationText}
-          </p>
+          <p style={{ color: errorTextColor }}>{errorText}</p>
           <div
             style={{
               marginBottom: '1em',

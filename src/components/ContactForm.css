@@ -34,3 +34,180 @@
   border-color: #dddddd;
   opacity: 0.2;
 }
+
+/* onClick style */
+.contact_button:active {
+  background: #960c93;
+  font-size: 1em;
+}
+
+/* animated checkmark */
+.circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #f40ef0;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  display: inline-block;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  margin: 0;
+  box-shadow: inset 0px 0px 0px #f40ef0;
+  animation: fill 0.4s ease-in-out 0.4s forwards,
+    scale 0.3s ease-in-out 0.9s both;
+}
+
+.check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scale {
+  0%,
+  100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px #f40ef0;
+  }
+}
+
+/* bird */
+
+#bird {
+  animation: fly 0.8s ease-in-out infinite;
+}
+
+#rightwing {
+  animation: rightwing 0.25s ease-in-out infinite;
+  transform-origin: 330px 350px;
+}
+
+#leftwing {
+  animation: leftwing 0.25s ease-in-out infinite;
+  transform-origin: 90px 390px;
+}
+
+#leftpupil {
+  animation: leftpupil 12s ease-in-out infinite;
+}
+
+#rightpupil {
+  animation: rightpupil 12s ease-in-out infinite;
+}
+
+@keyframes fly {
+  from {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(12px);
+  }
+}
+
+@keyframes rightwing {
+  from {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+}
+
+@keyframes leftwing {
+  from {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-30deg);
+  }
+}
+
+@keyframes leftpupil {
+  17% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(10px);
+  }
+  47% {
+    transform: translateX(10px);
+  }
+  50% {
+    transform: translateX(0) translateY(-30px);
+  }
+  82% {
+    transform: translateX(0) translateY(-30px);
+  }
+  85% {
+    transform: translateX(-50px) translateY(-5px);
+  }
+  97% {
+    transform: translateX(-50px) translateY(-5px);
+  }
+}
+
+@keyframes rightpupil {
+  17% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(70px);
+  }
+  48% {
+    transform: translateX(70px);
+  }
+  50% {
+    transform: translateX(0) translateY(-30px);
+  }
+  82% {
+    transform: translateX(0) translateY(-30px);
+  }
+  85% {
+    transform: translateX(-12px) translateY(-5px);
+  }
+  97% {
+    transform: translateX(-12px) translateY(-5px);
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  #birdsvg {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #birdsvg {
+    width: 300px;
+    height: 300px;
+  }
+  .checkmark {
+    width: 1em;
+    height: 1em;
+  }
+}
