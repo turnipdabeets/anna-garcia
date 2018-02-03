@@ -12,15 +12,21 @@ const nativePadding = <div style={{ paddingTop: '9rem' }} />;
 class Contact extends Component {
   state = {
     intro: 'Send me an email',
-    sent: false
+    sent: false,
+    error: false
   };
 
-  onSuccess = () => {
+  onSuccess = e => {
     this.setState({ intro: 'Thanks for contacting me!', sent: true });
   };
 
+  onError = e => {
+    console.log(e);
+    this.setState({ intro: 'Oh no! Something went wrong.', error: true });
+  };
+
   render() {
-    const { intro, sent } = this.state;
+    const { intro, sent, error } = this.state;
     return (
       <PageWrapper>
         <SectionWrapper>
@@ -29,10 +35,21 @@ class Contact extends Component {
               <Title text="contact" />
               {sent && !nativeDevice && checkmark}
             </div>
-            <Intro text={intro} />
+            <Intro style={error ? { color: '#ec5840' } : null} text={intro} />
           </div>
           {nativeDevice && <hr />}
-          {!sent && <ContactForm onSuccess={this.onSuccess} />}
+          {error && (
+            <p>
+              Try sending me an email at{' '}
+              <a href="mailto:annaegarcia@gmail.com?subject=alternate%20message%20from%20annagarcia.live!">
+                annaegarcia@gmail.com
+              </a>
+            </p>
+          )}
+          {!sent &&
+            !error && (
+              <ContactForm onSuccess={this.onSuccess} onError={this.onError} />
+            )}
           {!sent && nativePadding}
         </SectionWrapper>
         <SectionWrapper>{bird}</SectionWrapper>

@@ -14,10 +14,7 @@ const initialState = {
     email: false,
     message: false
   },
-  buttonName: 'Send',
-  errorText: null,
-  sent: true,
-  error: false
+  buttonName: 'Send'
 };
 
 class Contact extends Component {
@@ -56,6 +53,16 @@ class Contact extends Component {
     return invalid;
   };
 
+  shouldShowError = type => {
+    const { onblur, focused } = this.state;
+    return (
+      this.state[type] &&
+      this.invalidValue(type) &&
+      onblur[type] &&
+      !focused[type]
+    );
+  };
+
   handleInputChange = event => {
     const { value, name } = event.target;
     this.setState({
@@ -80,6 +87,7 @@ class Contact extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     const { email, message } = this.state;
+    const { onError, onSuccess } = this.props;
     const data = {
       email,
       message,
@@ -92,21 +100,22 @@ class Contact extends Component {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', url);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onerror = function(e) {
-      this.setState({
-        ...initialState,
-        error: true,
-        errorText: 'Oh no! There was an error while sending. Please try again!'
-      });
-      this.props.onError();
-      console.error(xhr.statusText);
+    // xhr.onreadystatechange = () => {
+    //   this.setState({
+    //     ...initialState,
+    //     sent: true
+    //   });
+    //   this.props.onSuccess();
+    // };
+    xhr.onerror = e => {
+      onError
+        ? onError(e)
+        : console.log('pass onError prop to ContactForm', xhr.statusText);
     };
-    xhr.onreadystatechange = () => {
-      this.setState({
-        ...initialState,
-        sent: true
-      });
-      this.props.onSuccess();
+    xhr.onload = e => {
+      onSuccess
+        ? onSuccess(e)
+        : console.log('pass onSuccess prop to ContactForm');
     };
     // url encode form data for sending as post data
     var encoded = Object.keys(data)
@@ -116,24 +125,10 @@ class Contact extends Component {
   };
 
   render() {
-    const {
-      email,
-      message,
-      onblur,
-      focused,
-      buttonName,
-      errorText,
-      error
-    } = this.state;
-
+    const { email, message, buttonName } = this.state;
     //error states
-    const emailError =
-      email && this.invalidValue('email') && onblur.email && !focused.email;
-    const messageError =
-      message &&
-      this.invalidValue('message') &&
-      onblur.message &&
-      !focused.message;
+    const emailError = this.shouldShowError('email');
+    const messageError = this.shouldShowError('message');
     const emailInputStyle = emailError
       ? { ...inputStyle, ...invalidInput }
       : inputStyle;
@@ -144,7 +139,6 @@ class Contact extends Component {
     return (
       <form onSubmit={this.handleFormSubmit}>
         <div className="group1">
-          <p style={{ color: errorTextColor }}>{errorText}</p>
           <div
             style={{
               marginBottom: '1em',
