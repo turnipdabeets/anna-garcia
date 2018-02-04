@@ -8,12 +8,16 @@ import trumpetNativeBlur from '../assets/trumpetNativeBlur.jpg';
 
 const image = nativeDevice ? trumpetNative : trumpet;
 const preload = nativeDevice ? trumpetNativeBlur : trumpetBlur;
+const containerClass = nativeDevice
+  ? 'image-container-native-color'
+  : 'image-container-nocolor';
 
 const Music = () => (
   <PageTemplate
     title={'music'}
     imgSrc={image}
     preloadSrc={preload}
+    containerClass={containerClass}
     intro="Latin GRAMMY nominee. Winner of an International Trumpet Competition. TV appearances include America’s Got Talent."
     copy={
       <div>

@@ -27,7 +27,8 @@
   opacity: 0;
 }
 
-.image-container-native {
+.image-container-native-color {
+  background-color: #f6f7f8;
   position: relative;
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
@@ -37,18 +38,18 @@
 }
 
 @media only screen and (min-width: 400px) {
-  .image-container-native {
+  .image-container-native-color {
     min-height: 320px;
   }
 }
 
 @media only screen and (min-width: 500px) {
-  .image-container-native {
+  .image-container-native-color {
     min-height: 400px;
   }
 }
 
-.image-container {
+.image-container-nocolor {
   position: relative;
   overflow: hidden;
   width: 250px;

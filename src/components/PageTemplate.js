@@ -48,7 +48,7 @@ const PageTemplate = ({
   intro,
   imgSrc,
   preloadSrc,
-  imgAlt = 'a picture of Anna',
+  containerClass,
   copy
 }) => (
   <PageWrapper>
@@ -60,7 +60,7 @@ const PageTemplate = ({
             <LazyLoadImage
               srcPreload={preloadSrc}
               srcLoaded={imgSrc}
-              containerClass="image-container-native"
+              containerClass={containerClass}
             />
             <hr />
           </div>
@@ -73,7 +73,7 @@ const PageTemplate = ({
           <LazyLoadImage
             srcPreload={preloadSrc}
             srcLoaded={imgSrc}
-            containerClass="image-container"
+            containerClass={containerClass}
           />
         </div>
       )}
