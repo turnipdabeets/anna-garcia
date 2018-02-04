@@ -1,0 +1,29 @@
+# 1. Redirects all requests to use https
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2. Allows urls to be passed via mod_proxy to react router (or html5 pushState)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^index\.html$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.html [L]
+</IfModule>
+
+# 3. Gzip files https://varvy.com/pagespeed/enable-compression.html
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/xml
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-javascript
+
+# No longer in use: 
+# 1. Redirects (300) all 404 urls to root. An alternate to mod_proxy 
+# ErrorDocument 404 https://www.annagarcia.live/
