@@ -1,44 +1,18 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Loadable from 'react-loadable';
 import { nativeDevice } from './utils';
-import './App.css';
-import PlatformNavBar from './components/PlatformNavBar';
+import {
+  Home,
+  About,
+  Contact,
+  Music,
+  Code,
+  NoMatch
+} from './components/AsyncRoutes';
 import Logo from './components/Logo';
+import PlatformNavBar from './components/PlatformNavBar';
 import SocialGroup from './components/Social';
-import BasicPageLoader from './components/BasicPageLoader';
-import ContactPageLoader from './components/ContactPageLoader';
-
-const Music = Loadable({
-  loader: () => import('./components/Music'),
-  loading: BasicPageLoader
-});
-
-const About = Loadable({
-  loader: () => import('./components/About'),
-  loading: BasicPageLoader
-});
-
-const Code = Loadable({
-  loader: () => import('./components/Code'),
-  loading: BasicPageLoader
-});
-
-const Contact = Loadable({
-  loader: () => import('./components/Contact'),
-  loading: ContactPageLoader
-});
-
-const NoMatch = Loadable({
-  loader: () => import('./components/NoMatch'),
-  loading: BasicPageLoader
-});
-
-const Home = () => (
-  <div>
-    <p className="App-title">Anna Garcia's new website coming soon.</p>
-  </div>
-);
+import './App.css';
 
 const headerStyle = nativeDevice ? 'App-header-native' : 'App-header';
 const bodyStyle = nativeDevice ? 'App-body-native' : 'App-body';

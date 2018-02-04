@@ -27,6 +27,21 @@ const Loading = () => {
       <div
         className={`animated-loader animated-copy copy5 ${addNativeClass}`}
       />
+      <div
+        className={`animated-loader animated-copy copy6 ${addNativeClass}`}
+      />
+      <div
+        className={`animated-loader animated-copy copy7 ${addNativeClass}`}
+      />
+      <div
+        className={`animated-loader animated-copy copy8 ${addNativeClass}`}
+      />
+      <div
+        className={`animated-loader animated-copy copy9 ${addNativeClass}`}
+      />
+      <div
+        className={`animated-loader animated-copy copy10 ${addNativeClass}`}
+      />
     </div>
   );
 };
