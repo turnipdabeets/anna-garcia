@@ -2,15 +2,18 @@ import React from 'react';
 import { nativeDevice } from '../utils';
 import PageTemplate from './PageTemplate';
 import trumpet from '../assets/trumpet.png';
+import trumpetBlur from '../assets/trumpetBlur.png';
 import trumpetNative from '../assets/trumpetNative.jpg';
+import trumpetNativeBlur from '../assets/trumpetNativeBlur.jpg';
 
 const image = nativeDevice ? trumpetNative : trumpet;
+const preload = nativeDevice ? trumpetNativeBlur : trumpetBlur;
 
 const Music = () => (
   <PageTemplate
     title={'music'}
     imgSrc={image}
-    imgAlt="Anna holding a trumpet"
+    preloadSrc={preload}
     intro="Latin GRAMMY nominee. Winner of an International Trumpet Competition. TV appearances include America’s Got Talent."
     copy={
       <div>

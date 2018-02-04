@@ -1,5 +1,6 @@
 import React from 'react';
 import { nativeDevice } from '../utils';
+import LazyLoadImage from './LazyLoadImage';
 import './PageTemplate.css';
 
 const addNativeClass = nativeDevice ? 'native-content' : '';
@@ -46,6 +47,7 @@ const PageTemplate = ({
   title,
   intro,
   imgSrc,
+  preloadSrc,
   imgAlt = 'a picture of Anna',
   copy
 }) => (
@@ -55,10 +57,10 @@ const PageTemplate = ({
       {nativeDevice &&
         imgSrc && (
           <div>
-            <img
-              src={imgSrc}
-              className={`image ${addNativeClass}`}
-              alt={imgAlt}
+            <LazyLoadImage
+              srcPreload={preloadSrc}
+              srcLoaded={imgSrc}
+              containerClass="image-container-native"
             />
             <hr />
           </div>
@@ -68,10 +70,10 @@ const PageTemplate = ({
     {!nativeDevice &&
       imgSrc && (
         <div>
-          <img
-            src={imgSrc}
-            className={`image ${addNativeClass}`}
-            alt={imgAlt}
+          <LazyLoadImage
+            srcPreload={preloadSrc}
+            srcLoaded={imgSrc}
+            containerClass="image-container"
           />
         </div>
       )}
