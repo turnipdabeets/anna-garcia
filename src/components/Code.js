@@ -50,7 +50,7 @@ const Code = () => (
       />
       <CopyWrapper>
         <p>
-          I'm a fullstack JavaScript developer currently working at American
+          I'm a Fullstack JavaScript developer currently working at American
           Express on hybrid mobile web apps and React Native mobile experiences.
         </p>
         <p>I'm interested in the blockchain and machine learning.</p>
