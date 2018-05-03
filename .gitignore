@@ -1,5 +1,10 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
+# ejecting
+/scripts
+/config
+stats.json
+
 # dependencies
 /node_modules
 
@@ -7,7 +12,6 @@
 /coverage
 
 # production
-/build
 
 # misc
 .DS_Store

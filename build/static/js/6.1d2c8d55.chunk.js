@@ -1,0 +1,2 @@
+webpackJsonp([6],{324:function(e,c,a){"use strict";Object.defineProperty(c,"__esModule",{value:!0});var l=a(0),t=a.n(l),n=function(){return t.a.createElement("svg",{className:"checkmark",xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 52 52"},t.a.createElement("circle",{className:"circle",cx:"26",cy:"26",r:"25",fill:"none"}),t.a.createElement("path",{className:"check",fill:"none",d:"M14.1 27.2l7.1 7.2 16.7-16.8"}))};c.default=n}});
+//# sourceMappingURL=6.1d2c8d55.chunk.js.map
