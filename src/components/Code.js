@@ -16,8 +16,9 @@ const WordCloud = Loadable({
 const data = [
   { text: 'JavaScript', value: 12800 },
   { text: 'React Native', value: 16900 },
-  { text: 'React', value: 10800 },
-  { text: 'python', value: 100 },
+  { text: 'Swift', value: 13800 },
+  { text: 'React', value: 9800 },
+  { text: 'python', value: 500 },
   { text: 'Node', value: 900 },
   { text: 'SQL', value: 50 },
   { text: 'three.js', value: 10 },
@@ -32,7 +33,6 @@ const data = [
   { text: 'angular', value: 5 },
   { text: 'Kotlin', value: 120 },
   { text: 'Java', value: 117 },
-  { text: 'Swift', value: 111 },
   { text: 'Objective C', value: 65 },
   { text: 'R', value: 25 }
 ];
@@ -50,14 +50,35 @@ const Code = () => (
       />
       <CopyWrapper>
         <p>
-          {`I'm a Fullstack Software Engineer working on web and mobile apps. You might find me at a React meetup giving a talk on "React Native Brownfield".`}
+          {`I'm a Fullstack Software Engineer working on web and mobile apps. I enjoy solving problems, and bringing ideas to life. To me, coding is
+          an art.`}
         </p>
-        <p>{`Technologies I use every day and love:
-Javascript, React, React Native, Redux, Node, Bash, Swift (iOS)`}</p>
-        <p>{`Technologies I'm learning: Objective C, Python (data and machine learning), Blockchain.`}</p>
+
+        <strong>Technologies I use every day and love:</strong>
+        <ul>
+          <li>
+            Javascript <i>or TypeScript</i>
+          </li>
+          <li>React & React Native</li>
+          <li>Swift (iOS) </li>
+          <li>Redux</li>
+          <li>Node</li>
+          <li>Bash</li>
+        </ul>
+
+        <strong>Technologies I'm learning or interested in:</strong>
+        <ul>
+          <li>
+            Python <i>data and machine learning</i>
+          </li>
+          <li>Blockchain</li>
+          <li>Kotlin</li>
+          <li>Objective C</li>
+        </ul>
+
         <p>
-          I enjoy solving problems and bringing ideas to life. To me, coding is
-          an art.
+          You might find me at a React meetup giving a talk on "React Native
+          Brownfield".
         </p>
       </CopyWrapper>
     </SectionWrapper>
