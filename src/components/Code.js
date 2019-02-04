@@ -1,6 +1,11 @@
 import React from 'react';
 import Loadable from 'react-loadable';
-import { Header, PageWrapper, SectionWrapper, CopyWrapper } from './PageTemplate';
+import {
+  Header,
+  PageWrapper,
+  SectionWrapper,
+  CopyWrapper
+} from './PageTemplate';
 import './Code.css';
 
 const WordCloud = Loadable({
@@ -35,19 +40,25 @@ const data = [
 const fontSizeMapper = word => Math.log2(word.value) * 3;
 const rotate = word => word.value % 360;
 
-const Code = () =>
+const Code = () => (
   <PageWrapper>
     <SectionWrapper>
-      <Header className="typewriter" title="code" intro="Web and Mobile Developer." />
+      <Header
+        className="typewriter"
+        title="code"
+        intro="Web and Mobile Developer."
+      />
       <CopyWrapper>
         <p>
-          {`I'm a Fullstack JavaScript developer currently working on hybrid mobile web apps and React Native mobile experiences. You might find me at a React meetup giving a talk on "React Native Brownfield".`}
+          {`I'm a Fullstack Software Engineer working on web and mobile apps. You might find me at a React meetup giving a talk on "React Native Brownfield".`}
         </p>
         <p>{`Technologies I use every day and love:
-Javascript, React, React Native, Redux, Node, Express`}</p>
-        <p
-        >{`Technologies I'm learning: Objective C & Swift (iOS), Python (data and machine learning), Blockchain.`}</p>
-        <p>I enjoy solving problems and bringing ideas to life. To me, coding is an art.</p>
+Javascript, React, React Native, Redux, Node, Bash, Swift (iOS)`}</p>
+        <p>{`Technologies I'm learning: Objective C, Python (data and machine learning), Blockchain.`}</p>
+        <p>
+          I enjoy solving problems and bringing ideas to life. To me, coding is
+          an art.
+        </p>
       </CopyWrapper>
     </SectionWrapper>
     <WordCloud
@@ -57,6 +68,7 @@ Javascript, React, React Native, Redux, Node, Express`}</p>
       width={290}
       height={320}
     />
-  </PageWrapper>;
+  </PageWrapper>
+);
 
 export default Code;
