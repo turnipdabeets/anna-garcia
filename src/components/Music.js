@@ -23,14 +23,16 @@ const Music = () => (
       <div>
         <p>
           Music is arguably my first language. I grew up in a musical family. My
-          sisters and I made an album together called the St. Louis Jazz
-          Sisters. Since then I’ve performed at venues from Carnegie Hall in New
-          York to The Blue Room in Kansas City and the Kennedy Center in
+          sisters and I formed a band called St. Louis Jazz Sisters and released
+          an album. Since then I’ve performed at venues from Carnegie Hall in
+          New York to The Blue Room in Kansas City and the Kennedy Center in
           Washington D.C. I've also toured the world playing in India, Mexico,
           and all around the US. Before moving to New York, I won the
           International Guild Solo Competition held in Sydney Australia. As a
           freelancer I’ve been a part of many musical groups including NYC’s
-          first all female mariachi and a hip hop brass band.
+          first all female mariachi and a hip hop brass band. I've been on
+          various TV appearances such as a Kia commercial, America's Got Talent
+          and Telemundo.
         </p>
         <p>
           My major music influences and mentors have been Vincent Penzarella,
