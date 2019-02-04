@@ -3,11 +3,11 @@ import Loadable from 'react-loadable';
 import BasicPageLoader from './BasicPageLoader';
 import ContactPageLoader from './ContactPageLoader';
 
-export const Home = () => (
-  <div>
-    <p className="App-title">Anna Garcia's new website coming soon.</p>
-  </div>
-);
+// export const Home = () => (
+//   <div>
+//     <p className="App-title">Anna Garcia's new website coming soon.</p>
+//   </div>
+// );
 
 export const Music = Loadable({
   loader: () => import('./Music'),

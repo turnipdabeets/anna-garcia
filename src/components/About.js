@@ -3,10 +3,10 @@ import PageTemplate from './PageTemplate';
 
 const About = () => (
   <PageTemplate
-    title="about"
+    title="Anna Garcia"
     imgSrc={null}
     imgAlt=""
-    intro="I’m a Musician, Entrepreneur and Programmer living in New York City."
+    intro="I’m a Software Engineer, Musician, and Entrepreneur living in New York City."
     copy={
       <p>
         I’m an award winning musician, founder of the world’s first Juice Crawl

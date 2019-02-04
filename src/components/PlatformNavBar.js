@@ -9,11 +9,6 @@ const deviceClass = nativeDevice ? 'nativeRouteGroup' : 'routeGroup';
 
 const sharedPaths = [
   {
-    name: 'about',
-    to: '/about',
-    icon: 'fa fa-info'
-  },
-  {
     name: 'music',
     to: '/music',
     icon: 'fa fa-music'
