@@ -63,7 +63,7 @@ const Code = () => (
           <li>Swift (iOS) </li>
           <li>Redux</li>
           <li>Node</li>
-          <li>Bash</li>
+          <li>Bash and UNIX based systems</li>
         </ul>
 
         <strong>Technologies I'm learning or interested in:</strong>
