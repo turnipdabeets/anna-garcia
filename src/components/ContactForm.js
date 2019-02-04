@@ -159,6 +159,7 @@ class Contact extends Component {
               style={emailInputStyle}
               required
               autoComplete="email"
+              autofocus="true"
             />
             {emailError && (
               <span style={errorMessage}>
