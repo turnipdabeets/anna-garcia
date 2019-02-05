@@ -1,0 +1,37 @@
+
+> portfolio@0.1.0 build /Users/annagarcia/Desktop/projects/portfolio
+> node scripts/build.js
+
+Creating an optimized production build...
+Compiled successfully.
+
+File sizes after gzip:
+
+  55.73 KB  build/static/js/main.484839ba.js
+  38.7 KB   build/static/js/5.c07464eb.chunk.js
+  9.36 KB   build/static/js/0.2052106a.chunk.js
+  7.96 KB   build/static/css/main.95549c6a.css
+  5.88 KB   build/static/js/1.00b0d7db.chunk.js
+  5.47 KB   build/static/js/2.3e04c8e1.chunk.js
+  3.72 KB   build/static/js/3.a3fd83b2.chunk.js
+  3.03 KB   build/static/js/4.67ab8651.chunk.js
+  2.94 KB   build/static/js/7.affb403f.chunk.js
+  2.05 KB   build/static/js/8.e4422096.chunk.js
+  340 B     build/static/js/6.1d2c8d55.chunk.js
+
+The project was built assuming it is hosted at the server root.
+You can control this with the homepage field in your package.json.
+For example, add this to build it for GitHub Pages:
+
+  "homepage" : "http://myname.github.io/myapp",
+
+The build folder is ready to be deployed.
+You may serve it with a static server:
+
+  npm install -g serve
+  serve -s build
+
+Find out more about deployment here:
+
+  http://bit.ly/2vY88Kr
+
