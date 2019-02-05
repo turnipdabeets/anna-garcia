@@ -1,0 +1,34 @@
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.10.0
+    branches:
+      only:
+        - master
+    steps:
+      - add_ssh_keys
+      - checkout
+      - run:
+          name: Keyscan DreamHost (HACK)
+          command: ssh-keyscan -H annagarcia.live >> ~/.ssh/known_hosts
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - run:
+          name: Build App
+          command: npm run build
+      - deploy:
+          name: Version Package Bump
+          command: |
+            if ! [ -z "$(git status --porcelain)" ]; then
+                git config user.name "circleci"
+                git config user.email "EMAIL"
+                git add .
+                git commit -m "[ci] Generated Build"
+                npm version patch -m "[ci] Bumped version number to %s"
+                git push origin master
+                git push --tags
+            fi
+      - deploy:
+          name: Publish to DreamHost
+          command: scp -r build/* annagarcia@annagarcia.live:./annagarcia.live/
