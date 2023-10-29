@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app)
 
+Compatible with Node 16
+
 ## Available Scripts
 
 In the project directory, you can run:
