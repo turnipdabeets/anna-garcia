@@ -1,26 +1,14 @@
-import React, { Component } from 'react';
-import Loadable from 'react-loadable';
+import React, { Component, Suspense, lazy } from 'react';
 import { PageWrapper, SectionWrapper, Title, Intro } from '../PageTemplate';
 import ContactFormLoader from '../Loader/ContactFormLoader';
 import { nativeDevice } from '../../utils';
 import './ContactForm.css';
 
-const ContactForm = Loadable({
-  loader: () => import('./ContactForm'),
-  loading: ContactFormLoader
-});
+const ContactForm = lazy(() => import('./ContactForm'));
+const Checkmark = lazy(() => import('../../svg/checkmark'));
+const Bird = lazy(() => import('../../svg/bird'));
 
-const Checkmark = Loadable({
-  loader: () => import('../../svg/checkmark'),
-  loading: () => <p />
-});
-
-const Bird = Loadable({
-  loader: () => import('../../svg/bird'),
-  loading: () => <p />
-});
-
-// adds padding below form which only affects native to hid bird before submitting
+// adds padding below form which only affects native to hide bird before submitting
 const nativePadding = <div style={{ paddingTop: '9rem' }} />;
 
 class Contact extends Component {
@@ -47,7 +35,9 @@ class Contact extends Component {
           <div>
             <div style={{ display: 'flex' }}>
               <Title text="contact" />
-              {sent && !nativeDevice && <Checkmark />}
+              {sent && !nativeDevice && (
+                <Suspense fallback={<p />}><Checkmark /></Suspense>
+              )}
             </div>
             <Intro style={error ? { color: '#ec5840' } : null} text={intro} />
           </div>
@@ -61,12 +51,14 @@ class Contact extends Component {
             </p>
           )}
           {!sent && !error && (
-            <ContactForm onSuccess={this.onSuccess} onError={this.onError} />
+            <Suspense fallback={<ContactFormLoader />}>
+              <ContactForm onSuccess={this.onSuccess} onError={this.onError} />
+            </Suspense>
           )}
           {!sent && !error && nativePadding}
         </SectionWrapper>
         <SectionWrapper>
-          <Bird />
+          <Suspense fallback={<p />}><Bird /></Suspense>
         </SectionWrapper>
       </PageWrapper>
     );

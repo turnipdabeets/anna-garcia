@@ -3,7 +3,7 @@ import './Social.css';
 import TouchableAnchor from '../TouchableAnchor';
 import Linkedin from '../../../svg/linkedin';
 import Github from '../../../svg/github';
-import Twitter from '../../../svg/twitter';
+// import Twitter from '../../../svg/twitter';
 
 const socialList = [
   {
@@ -16,11 +16,6 @@ const socialList = [
     title: 'Connect with me on Linkedin',
     icon: Linkedin
   },
-  {
-    href: 'http://www.twitter.com/turnipdabeets',
-    title: 'Follow me on Twitter',
-    icon: Twitter
-  }
 ];
 
 const SocialGroup = () => (

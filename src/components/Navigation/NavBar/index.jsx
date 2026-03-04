@@ -28,7 +28,10 @@ const sharedPaths = [
 const createLinks = paths =>
   paths.map(path => (
     <li key={path.name}>
-      <NavLink exact to={path.to} activeStyle={{ color: activeColor }}>
+      <NavLink
+        to={path.to}
+        style={({ isActive }) => isActive ? { color: activeColor } : undefined}
+      >
         {nativeDevice && <i className={path.icon} aria-hidden="true" />}
         <p>{path.name}</p>
       </NavLink>
